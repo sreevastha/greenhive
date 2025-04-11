@@ -8,6 +8,9 @@ define('DB_NAME', 'greenhive');
 // Site URL - Update this according to your local setup
 define('SITE_URL', 'http://localhost/greenhive');
 
+// Gemini API Key
+define('GEMINI_API_KEY', 'api_key'); // Your Gemini API key
+
 // Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

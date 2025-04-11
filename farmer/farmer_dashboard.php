@@ -32,7 +32,9 @@ include '../includes/header.php';
 <div class="dashboard-container">
     <div class="dashboard-header">
         <h2>Farmer Dashboard</h2>
+        
         <a href="add_product.php" class="btn-primary">Add New Product</a>
+        <a href="index.php" class="btn-primary">GOVERNAMENT POLICES</a>
     </div>
 
     <div class="stats-grid">
@@ -58,7 +60,7 @@ include '../includes/header.php';
             </div>
         </div>
     </div>
-
+   
     <div class="products-section">
         <h3>Your Products</h3>
         <?php if (empty($products)): ?>

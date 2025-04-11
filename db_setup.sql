@@ -115,3 +115,62 @@ CREATE TABLE
         imgurl VARCHAR(255) NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
+
+-- Create table for Government Policies
+CREATE TABLE
+    IF NOT EXISTS policies (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        type ENUM ('Loan', 'Subsidy', 'Insurance') NOT NULL,
+        region VARCHAR(100),
+        pdf_link VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+-- Create table for Loan Applications
+CREATE TABLE
+    IF NOT EXISTS loans (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL, -- Link to the user who applied for the loan
+        farm_size FLOAT NOT NULL,
+        annual_income FLOAT NOT NULL,
+        loan_amount FLOAT NOT NULL,
+        purpose TEXT NOT NULL,
+        status ENUM ('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+    );
+
+-- Create table for Subsidies
+CREATE TABLE
+    IF NOT EXISTS subsidies (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        eligibility_criteria TEXT NOT NULL,
+        application_process TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+-- Create table for Notifications
+CREATE TABLE
+    IF NOT EXISTS notifications (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        message TEXT NOT NULL,
+        date DATE NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+-- Create table for Eligibility Checks (Optional: To log eligibility queries)
+CREATE TABLE
+    IF NOT EXISTS eligibility_checks (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL, -- Link to the user who checked eligibility
+        farm_size FLOAT NOT NULL,
+        crop_type VARCHAR(255) NOT NULL,
+        income_level FLOAT NOT NULL,
+        result TEXT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+    );

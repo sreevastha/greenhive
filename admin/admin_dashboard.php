@@ -24,6 +24,7 @@ include __DIR__ . '/../includes/header.php'; // Corrected path
             <li><a href="manage_subscriptions.php" class="block hover:bg-gray-700 p-2 rounded">Manage Subscriptions</a></li>
             <li><a href="manage_meal_plans.php" class="block hover:bg-gray-700 p-2 rounded">Manage Meal Plans</a></li>
             <li><a href="manage_orders.php" class="block hover:bg-gray-700 p-2 rounded">Manage Orders</a></li>
+            <li><a href="manage_policy.php" class="block hover:bg-gray-700 p-2 rounded">Manage policy</a></li>
         </ul>
     </div>
 
