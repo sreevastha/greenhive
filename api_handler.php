@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
 // Gemini API Key (Replace with yours)
-$API_KEY = "AIzaSyBH37GzxAOKxmbCn54dJdaOzkx2XqNS8dU";
+$API_KEY = "api_key";
 $API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=$API_KEY";
 
 // Read user message from frontend
